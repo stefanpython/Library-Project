@@ -3,21 +3,13 @@ const authorInput= document.querySelector('#author');
 const pagesInput = document.querySelector('#pages');
 const readInput = document.querySelector('#read');
 
-let myLibrary = [];
+let myLibrary = JSON.parse(localStorage.getItem("myLibrary")) || []; // Retrieve books from saved localStorage
 
-const DEFAULT = [
-    {
-      title: "The Lord of the Rings",
-      author: "J.R.R. Tolkien",
-      pages: "295",
-      status: "Read",
-    },
-  ];
-
-// Add books from localStorage if pages is refreshed
-if (myLibrary.length === 0) {
-    retrieveData();
+// If statement to display books if array is not empty
+if (myLibrary.length != 0 || myLibrary != null) {
+    displayBooks();
 }
+
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -26,7 +18,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-
+// eventListener to addBtn to add books to myLibray array
 const addBookBtn = document.querySelector('#addBtn');
 addBookBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -46,8 +38,11 @@ function addBookToLibrary() {
 
     // Store new book objects in myLibrary array
     myLibrary.push(book);
+    
     saveData();
-    form.reset();
+    // displayBooks();
+    window.location.reload();
+    form.reset(); // reset form inputs
 }
 
 
@@ -61,4 +56,24 @@ function retrieveData() {
    myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
 }
 
+// Function to loop through and display each book on html
+function displayBooks() {
 
+  const card = document.querySelector('.card');
+
+  myLibrary.forEach((book) => {
+      const div = document.createElement('div');
+      div.style.border = "1px solid grey";
+      div.style.width = '250px';
+      div.style.height = '250px';
+      div.style.padding = '20px';
+      div.style.marginLeft = '10px';
+      div.innerHTML = `
+      <div><h2>Title: ${book.title}</h2></div>
+      <div><h2>Author: ${book.author}</h2></div>
+      <div><h2>Pages: ${book.pages}</h2></div>
+      <div><h2>Read: ${book.read}</h2></div>
+      `;
+      card.appendChild(div)
+  })
+}
