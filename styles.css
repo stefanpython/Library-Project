@@ -1,10 +1,40 @@
-/* .card {
-    border: 1px solid grey;
-    width: 250px;
-    height: 250px;
+.form-container {
+    display: flex;
+    justify-content: space-evenly;
+   
 }
 
-.box {
+#form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    background-color: rgba(87, 145, 145, 0.171);
+    border-radius: 10px;
     padding: 10px;
-    margin-left: 10px;
-} */
+}
+
+#form input {
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+label {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#addBtn {
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: rgb(5, 144, 209);
+    color: white;
+    font-size: 17px;
+}
+
+#addBtn:hover {
+    transform: scale(1.1);
+    transition: 0.8s;
+}

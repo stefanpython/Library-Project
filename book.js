@@ -76,6 +76,7 @@ function displayBooks() {
       card.style.flexWrap = "wrap";
       card.style.margin = '10px';
       card.style.gap = '15px';
+      card.style.justifiContent = 'center';
       
       div.innerHTML = `
       <div><h2>Title: ${book.title}</h2></div>
