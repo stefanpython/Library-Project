@@ -88,3 +88,12 @@ function displayBooks() {
       card.appendChild(div)
   })
 }
+
+
+function showForm() {
+  document.querySelector('.box').style.display = 'block';
+}
+
+document.querySelector('#closeX').addEventListener('click', () => {
+  document.querySelector('.box').style.display = 'none';
+})

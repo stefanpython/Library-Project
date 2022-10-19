@@ -15,8 +15,16 @@
             <h1 class="content">The Book Collector</h1>
         </center>
 
-        <div class="form-container">
+        <button onclick="showForm()">Show the form</button>
+
+        <center>
+        <div class="form-container box">
+
+            
+
             <form id="form" action="/" method="get">
+
+                <img id="closeX" style="height: 20px;" src="x.png" alt="">
 
                 <label for="title">Title:</label>
                 <input type="text" name="title" id="title" placeholder="Title">
@@ -34,9 +42,12 @@
                 <button type="submit" id="addBtn">Add Book</button>
             </form>
         </div>
+    </center>
         
         <div class="card"></div>
 
         <script src="book.js" async defer></script>
     </body>
 </html>
+
+<!--X PNG <a href="https://www.freeiconspng.com/img/35402">Png X Designs</a>-->
