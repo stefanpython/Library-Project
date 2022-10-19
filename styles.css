@@ -49,3 +49,16 @@ label {
     width: 20px;
     margin-left: 180px;
 }
+
+footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
