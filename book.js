@@ -52,9 +52,9 @@ function saveData() {
 }
 
 // Function to retrieve data from localStorage
-function retrieveData() {
-   myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
-}
+// function retrieveData() {
+//    myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
+// }
 
 // Function to loop through and display each book on html
 function displayBooks() {
@@ -62,17 +62,27 @@ function displayBooks() {
   const card = document.querySelector('.card');
 
   myLibrary.forEach((book) => {
+
       const div = document.createElement('div');
+
       div.style.border = "1px solid grey";
-      div.style.width = '250px';
+      div.style.width = '270px';
       div.style.height = '250px';
       div.style.padding = '20px';
       div.style.marginLeft = '10px';
+      div.style.borderRadius = "15px";
+
+      card.style.display = 'flex';
+      card.style.flexWrap = "wrap";
+      card.style.margin = '10px';
+      card.style.gap = '15px';
+      
       div.innerHTML = `
       <div><h2>Title: ${book.title}</h2></div>
       <div><h2>Author: ${book.author}</h2></div>
       <div><h2>Pages: ${book.pages}</h2></div>
       <div><h2>Read: ${book.read}</h2></div>
+      
       `;
       card.appendChild(div)
   })
