@@ -11,6 +11,7 @@ if (myLibrary.length != 0 || myLibrary != null) {
 }
 
 
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -33,7 +34,8 @@ function addBookToLibrary() {
     let pages = pagesInput.value;
     let read = readInput.checked;
 
-    // Create a new book object with the new values
+    if (title && author && pages && read) {
+      // Create a new book object with the new values
     const book = new Book(title, author, pages, read);
 
     // Store new book objects in myLibrary array
@@ -43,6 +45,10 @@ function addBookToLibrary() {
     // displayBooks();
     window.location.reload();
     form.reset(); // reset form inputs
+    } else {
+      alert("Please enter all the information and try again.")
+    }
+    
 }
 
 
@@ -51,19 +57,18 @@ function saveData() {
     localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
 
-// Function to retrieve data from localStorage
-// function retrieveData() {
-//    myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
-// }
 
 // Function to loop through and display each book on html
 function displayBooks() {
 
   const card = document.querySelector('.card');
 
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
 
       const div = document.createElement('div');
+
+      div.setAttribute('class', 'bookCard')
+      div.setAttribute('id', index)
 
       div.style.border = "1px solid grey";
       div.style.width = '270px';
@@ -83,11 +88,27 @@ function displayBooks() {
       <div><h2>Author: ${book.author}</h2></div>
       <div><h2>Pages: ${book.pages}</h2></div>
       <div><h2>Read: ${book.read}</h2></div>
-      
+      <button class='delBtn' id=${index}>Delete</button>
       `;
+
+      
       card.appendChild(div)
+      
+      
   })
+      const deleteBtn = document.querySelectorAll('.delBtn');
+      
+      for (btn of deleteBtn) {
+        btn.addEventListener('click', function() {
+    
+          myLibrary.splice(this.id, 1)
+          saveData();
+          window.location.reload();
+        })
+      }
+  
 }
+
 
 
 function showForm() {
@@ -97,3 +118,8 @@ function showForm() {
 document.querySelector('#closeX').addEventListener('click', () => {
   document.querySelector('.box').style.display = 'none';
 })
+
+
+
+
+// Try - add id`s for each book with a variable which you increment and compare it to the id value of the pressed button and then splice.
