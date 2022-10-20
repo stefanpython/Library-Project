@@ -16,6 +16,7 @@
     background: linear-gradient(45deg, #1CB5E0 10%, #010b66 100%);
     border-radius: 10px;
     padding: 10px;
+    box-shadow: 10px 5px 20px royalblue;
 }
 
 #form input {
@@ -61,4 +62,25 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+#showFormBtn {
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+    margin-bottom: 20px;
+    background-color: rgba(240, 255, 255, 0);
+    border: none;
+}
+
+#showFormBtn > img {
+    width: 70px;
+    border: 1px ridge rgb(73, 66, 58);
+    border-radius: 20px;
+    background-color: darkslategrey;
+}
+
+#showFormBtn > img:hover {
+    transform: scale(1.2);
+    transition: 0.7s;
 }
