@@ -34,7 +34,7 @@ function addBookToLibrary() {
     let pages = pagesInput.value;
     let read = readInput.checked;
 
-    if (title && author && pages && read) {
+    if (title && author && pages) {
       // Create a new book object with the new values
     const book = new Book(title, author, pages, read);
 
@@ -64,6 +64,8 @@ function displayBooks() {
   const card = document.querySelector('.card');
 
   myLibrary.forEach((book, index) => {
+    
+      let bgColor;
 
       const div = document.createElement('div');
 
@@ -87,26 +89,18 @@ function displayBooks() {
       <div><h2>Title: ${book.title}</h2></div>
       <div><h2>Author: ${book.author}</h2></div>
       <div><h2>Pages: ${book.pages}</h2></div>
-      <div><h2>Read: ${book.read}</h2></div>
+      <div><h2>Read: <button class='readBtn' id='${index}'>${book.read}</button></h2></div>
       <button class='delBtn' id=${index}>Delete</button>
       `;
-
       
       card.appendChild(div)
       
       
   })
-      const deleteBtn = document.querySelectorAll('.delBtn');
-      
-      for (btn of deleteBtn) {
-        btn.addEventListener('click', function() {
-    
-          myLibrary.splice(this.id, 1)
-          saveData();
-          window.location.reload();
-        })
-      }
   
+    deleteItem();
+      
+    readStatus();
 }
 
 
@@ -121,5 +115,35 @@ document.querySelector('#closeX').addEventListener('click', () => {
 
 
 
+function deleteItem() {
+  const deleteBtn = document.querySelectorAll('.delBtn');
+      
+      for (btn of deleteBtn) {
+        btn.addEventListener('click', function() {
+    
+          myLibrary.splice(this.id, 1)
+          saveData();
+          window.location.reload();
+        })
+      }
+}
 
-// Try - add id`s for each book with a variable which you increment and compare it to the id value of the pressed button and then splice.
+function readStatus() {
+  const statusRead = document.querySelectorAll('.readBtn');
+
+    for (item of statusRead) {
+      item.addEventListener('click', function () {
+
+      if (myLibrary[this.id].read == 'true') {
+        myLibrary[this.id].read = 'false';
+        saveData()
+        window.location.reload();
+        
+      } else {
+          myLibrary[this.id].read = 'true';
+          saveData();
+          window.location.reload();
+      }
+    })
+  }
+}
