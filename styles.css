@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Black+And+White+Picture&family=Permanent+Marker&family=Volkhov&display=swap');
+
+
 .form-container {
     display: flex;
     justify-content: space-evenly;
@@ -62,6 +65,7 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: url('https://www.msetconf.org/wp-content/uploads/2018/10/Web-Page-Background-Color.jpg');
 }
 
 #showFormBtn {
@@ -103,6 +107,9 @@ hr {
     width: 60px;
     border-radius: 10px;
     font-size: 20px;
+    background-color: #00BFFF;
+    color: white;
+    font-weight: 900;
 }
 
 .readBtn:hover {
@@ -120,4 +127,19 @@ hr {
     color: white;
     background-color: #CD5C5C;
     border-radius: 5px;
+}
+
+.content {
+    font-family: 'Aclonica', sans-serif;
+    font-size: 40px;
+}
+
+h2 {
+    font-family: 'Volkhov', serif;
+    font-size: 20px;
+}
+
+.delBtn:hover {
+    transform: scale(1.7);
+    transition: 0.7s;
 }

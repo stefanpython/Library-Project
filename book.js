@@ -73,11 +73,13 @@ function displayBooks() {
       div.setAttribute('id', index)
 
       div.style.border = "1px solid grey";
-      div.style.width = '270px';
+      div.style.width = '250px';
       div.style.height = '250px';
       div.style.padding = '20px';
       div.style.marginLeft = '10px';
       div.style.borderRadius = "15px";
+      div.style.boxShadow = '10px 15px 20px grey'
+      div.style.background = 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)';
 
       card.style.display = 'flex';
       card.style.flexWrap = "wrap";
