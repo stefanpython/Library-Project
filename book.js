@@ -120,10 +120,16 @@ function deleteItem() {
       
       for (btn of deleteBtn) {
         btn.addEventListener('click', function() {
-    
-          myLibrary.splice(this.id, 1)
-          saveData();
-          window.location.reload();
+          
+          let con = confirm('Are you sure you want to delete this book?');
+          if (con == true) {
+            myLibrary.splice(this.id, 1)
+            saveData();
+            window.location.reload();
+          }else {
+            return;
+          }
+          
         })
       }
 }

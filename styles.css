@@ -105,6 +105,11 @@ hr {
     font-size: 20px;
 }
 
+.readBtn:hover {
+    transform: scale(1.2);
+    transition: 0.7s;
+}
+
 .delBtn {
     border: none;
     margin-top: 10px;
@@ -112,4 +117,7 @@ hr {
     height: 30px;
     width: 70px;
     font-size: 15px;
+    color: white;
+    background-color: #CD5C5C;
+    border-radius: 5px;
 }
