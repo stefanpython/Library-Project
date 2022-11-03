@@ -10,13 +10,13 @@ if (myLibrary.length != 0 || myLibrary != null) {
     displayBooks();
 }
 
-
-
-function Book(title, author, pages, read) {
+class Book {
+  constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+  }
 }
 
 // eventListener to addBtn to add books to myLibray array
