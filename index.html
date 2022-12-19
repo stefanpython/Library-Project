@@ -19,16 +19,17 @@
 
         <hr>
         <center>
-        <div class="form-container box">
 
-            
+            <p id="errorMessage">This is weher the error is </p>
+
+        <div class="form-container box">
 
             <form id="form" action="/" method="get">
 
                 <img id="closeX" style="height: 20px;" src="x.png" alt="x button">
 
                 <label for="title">-- Title --</label>
-                <input type="text" name="title" id="title" placeholder="Title">
+                <input type="text" name="title" id="title" placeholder="Title" required>
 
                 <label for="author">-- Author --</label>
                 <input type="text" name="author" id="author" placeholder="Author">
